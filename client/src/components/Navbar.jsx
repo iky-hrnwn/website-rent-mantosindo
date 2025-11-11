@@ -4,7 +4,7 @@ const Navbar = ({setShowLogin}) => {
   const menuLinks = ["Home", "About", "Contact"];
   const navigate = useNavigate()
   
-  return <div className="flex flex-col px-6 md:px-16 lg:px-24 xl:px-32 relative transition-all">
+  return <div className="flex flex-col px-6 md:px-16 lg:px-24 xl:px-32 relative transition-all mb-3">
     {/* Navigation link */}
     <div className="flex items-center justify-end text-[12px] py-3 mb-1 border-[#BFBFBF]">
       <div className="z-50 text-[#8C8C8C] transition-all duration-300">
