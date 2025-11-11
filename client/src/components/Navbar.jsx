@@ -1,25 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const menuLinks = ["Home", "About", "Contact"];
-
-  return <div className="flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 relative transition-all">
-    <Link to="/" className="flex items-center leading-tight">
-      <img src="/logopt.png" alt="logo" className="h-13"/>
-      <div className="">
-        <h1 className="font-bold">MANTOSINDO</h1>
-        <h1>MULTIMEDIA</h1>
+  const navigate = useNavigate()
+  
+  return <div className="flex flex-col px-6 md:px-16 lg:px-24 xl:px-32 relative transition-all">
+    {/* Navigation link */}
+    <div className="flex items-center justify-end text-[12px] py-3 mb-1 border-[#BFBFBF]">
+      <div className="z-50 text-[#8C8C8C] transition-all duration-300">
+        {menuLinks.map((link) => (
+          <Link key={link} to={`/${link.toLowerCase()}`} className="mx-4">
+            {link}
+          </Link>
+        ))}
       </div>
-    </Link>
 
-    <div className="z-50 transition-all duration-300">
-      {menuLinks.map((link) => (
-        <Link key={link} to={`/${link.toLowerCase()}`} className="mx-4">
-          {link}
-        </Link>
-      ))}
+      <div className="flex gap-2 text-[#262626]">
+        <button onClick={()=> navigate('/owner')} className="cursor-pointer hover:text-black">Dashboard</button>
+        <button onClick={()=> setShowLogin(true)} className="cursor-pointer hover:text-black">Login</button>
+      </div>
     </div>
-  </div>;
+    
+    {/* Navigation Search */}         
+    <div className="flex justify-between flex-wrap">
+      <Link to="/" className="flex items-center leading-tight">
+        <img src="/logo.svg" alt="logo" className="h-10"/>
+      </Link>
+
+      <img src="/cart.svg" alt="cart" />
+    </div>
+    
+    <div className="flex items-center border border-[#F2F2F2]">
+        <img src="/search.svg" alt="search" className="h-8"/>
+        <input type="text" className="w-full sm:w-[300px] md:w-[400px] lg:w-[500px] mx-2 outline-none text-[11px] placeholder-[#BFBFBF]" placeholder="Search Products..." />
+    </div>
+  </div>
 };
 
 export default Navbar;
