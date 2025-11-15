@@ -9,11 +9,13 @@ const Navbar = ({setShowLogin}) => {
     <div className="flex items-center justify-end text-[12px] py-3 mb-1 border-[#BFBFBF]">
       <div className="z-50 text-[#8C8C8C] transition-all duration-300">
         {menuLinks.map((link) => (
-          <Link key={link} to={`/${link.toLowerCase()}`} className="mx-4">
+          <Link key={link} to={`/${link.toLowerCase()}`} className="mx-4 hover:text-[#262626]">
             {link}
           </Link>
         ))}
       </div>
+
+      <span className="h-4 w-px bg-[#262626] mr-3"></span>
 
       <div className="flex gap-2 text-[#262626]">
         <button onClick={()=> navigate('/owner')} className="cursor-pointer hover:text-black">Dashboard</button>
@@ -27,12 +29,11 @@ const Navbar = ({setShowLogin}) => {
         <img src="/logo.svg" alt="logo" className="h-10"/>
       </Link>
 
+      <div className="flex items-center border border-[#F2F2F2]">
+          <img src="/search.svg" alt="search" className="h-8"/>
+          <input type="text" className="w-full sm:w-[300px] md:w-[400px] lg:w-[500px] mx-2 outline-none text-[11px] placeholder-[#BFBFBF]" placeholder="Search Products..." />
+      </div>
       <img src="/cart.svg" alt="cart" />
-    </div>
-    
-    <div className="flex items-center border border-[#F2F2F2]">
-        <img src="/search.svg" alt="search" className="h-8"/>
-        <input type="text" className="w-full sm:w-[300px] md:w-[400px] lg:w-[500px] mx-2 outline-none text-[11px] placeholder-[#BFBFBF]" placeholder="Search Products..." />
     </div>
   </div>
 };
